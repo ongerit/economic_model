@@ -1,0 +1,179 @@
+<div class="col-md-6" ng-controller="MainCtrl">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>VIDAS Calculator </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Number of Patients: <p>{{patients.value}}</p></td>
+                <td>
+                    <input class="form-control" ng-model="patients.value"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Western Blot Price Variability: </td>
+                <td>
+                    <input class="form-control" ng-model="variability.value" />
+                </td>
+            </tr>
+            <tr>
+                <td>Old VIDAS Assays Price/Test:</td>
+                <td>
+                    <input class="form-control" ng-model="oldPrice.value"/>
+                </td>
+            </tr>
+            <tr>
+                <td>New VIDAS Assays Price/Test:</td>
+                <td>
+                    <input class="form-control" ng-model="newPrice.value" />
+                </td>
+            </tr>
+            <tr>
+                <td>Western Blot Price/Test:</td>
+                <td>
+                    <input class="form-control" ng-model="westernBlotPrice.value" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-6">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Average Pricing Information</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Average Price of Old VIDAS Assays (Combo)</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>Average Price of New VIDAS Assays (Per 1 Assay)</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>Average Price of Western Blot (Per 1 WB)</td>
+                <td>$20-$50</td>
+            </tr>
+            <tr>
+                <td>Western Blot Price Variability (+/-)</td>
+                <td>10%</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="" class="btn btn-lg btn-default">Clear</a>
+</div>
+<div class="col-md-12">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Testing Summary Statistics (Cost, Revenue, Operating Margin, Western Blot Savings)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cost:</td>
+                <td></td>
+            </tr>
+            <tr>
+            <td>Old VIDAS Assays + WB Confirmation </td>
+            <td>
+                <input class="form-control" />
+            </td>
+            </tr>
+            <tr>
+                <td>Old VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>New VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Change in Cost with New VIDAS</td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Revenue:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Old VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>New VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Change in Revenue with New VIDAS</td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Operating Margin:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Old VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>New VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Change in the Operating Margin with New VIDAS</td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Western Blot Usage:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Old VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>New VIDAS Assays + WB Confirmation </td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Western Blot Savings with New VIDAS</td>
+                <td>
+                    <input class="form-control" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="" class="btn btn-lg btn-default">Clear</a>
+</div>
