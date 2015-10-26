@@ -26,7 +26,29 @@ angular.module('ongerit.EconomicModels')
 		$scope.westernBlotPrice= {
 			value:" "
 		}
+		$scope.oldVidasAssays = function(){
+			return "((.313)*((47)*(oldPrice.value|number)+(94)*(westernBlotPrice.value|number))/(150))*(patients.value|number)"
+		}
+		
+		$scope.wbConfirmation ={
+			value: "((.687)*((103)*(oldPrice.value|number)+(0)*(westernBlotPrice.value|number))/(150))*(patients.value|number)"
+		}
+		
   });
+	
+	//Clear form responses
+	function clearResponses(){
+		$('tbody').find('input:text').val('');
+	}
+	
+	
+	// .directives('firstTotal', function(){
+	// 	return{
+	// 		template: "Only in america"
+	// 	};
+	//
+	// })
+	
 
 
 	// function calculate() {

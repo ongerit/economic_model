@@ -1,4 +1,5 @@
-<div class="col-md-6" ng-controller="MainCtrl">
+<div class="wrapper" ng-controller="MainCtrl">
+<div class="col-md-6">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -15,25 +16,25 @@
                 </td>
             </tr>
             <tr>
-                <td>Western Blot Price Variability: </td>
+                <td>Western Blot Price Variability: {{variability.value}} </td>
                 <td>
                     <input class="form-control" ng-model="variability.value" />
                 </td>
             </tr>
             <tr>
-                <td>Old VIDAS Assays Price/Test:</td>
+                <td>Old VIDAS Assays Price/Test: {{oldPrice.value}} </td>
                 <td>
                     <input class="form-control" ng-model="oldPrice.value"/>
                 </td>
             </tr>
             <tr>
-                <td>New VIDAS Assays Price/Test:</td>
+                <td>New VIDAS Assays Price/Test: {{newPrice.value}} </td>
                 <td>
                     <input class="form-control" ng-model="newPrice.value" />
                 </td>
             </tr>
             <tr>
-                <td>Western Blot Price/Test:</td>
+                <td>Western Blot Price/Test: {{westernBlotPrice.value}} </td>
                 <td>
                     <input class="form-control" ng-model="westernBlotPrice.value" />
                 </td>
@@ -81,28 +82,35 @@
         <tbody>
             <tr>
                 <td>Cost:</td>
-                <td></td>
+                <td> </td>
             </tr>
             <tr>
             <td>Old VIDAS Assays + WB Confirmation </td>
-            <td>
-                <input class="form-control" />
+            <td id="row1">
+									${{
+										((.313)*((47)*(oldPrice.value|number)+(94)*(westernBlotPrice.value|number))/(150))*(patients.value|number)+
+
+										((.687)*((103)*(oldPrice.value|number)+(0)*(westernBlotPrice.value|number))/(150))*(patients.value|number)
+
+
+															}}
             </td>
-            </tr>
-            <tr>
-                <td>Old VIDAS Assays + WB Confirmation </td>
-                <td>
-                    <input class="form-control" />
-                </td>
             </tr>
             <tr>
                 <td>New VIDAS Assays + WB Confirmation </td>
                 <td>
-                    <input class="form-control" />
+									${{
+									((.117)*((35)*(newPrice.value|number)+(35)*(westernBlotPrice.value|number)*)/(150))*(patients.value|number)
+									<!-- ((.17)*((51)*(newPrice.value|number)+(51)*(westernBlotPrice.value|number)*)/(150))*(patients.value|number)+
+									((.713)*((0)*(newPrice.value|number)+(214)*(westernBlotPrice.value|number)*)/(150))*(patients.value|number) -->
+
+
+									}}
+                   
                 </td>
             </tr>
             <tr>
-                <td>Change in Cost with New VIDAS</td>
+                <td><b>Change in Cost with New VIDAS</b></td>
                 <td>
                     <input class="form-control" />
                 </td>
@@ -124,7 +132,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Change in Revenue with New VIDAS</td>
+                <td><b>Change in Revenue with New VIDAS</b></td>
                 <td>
                     <input class="form-control" />
                 </td>
@@ -146,7 +154,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Change in the Operating Margin with New VIDAS</td>
+                <td><b>Change in the Operating Margin with New VIDAS</b></td>
                 <td>
                     <input class="form-control" />
                 </td>
@@ -168,12 +176,14 @@
                 </td>
             </tr>
             <tr>
-                <td>Western Blot Savings with New VIDAS</td>
+                <td><b>Western Blot Savings with New VIDAS</b></td>
                 <td>
                     <input class="form-control" />
                 </td>
             </tr>
         </tbody>
     </table>
-    <a href="" class="btn btn-lg btn-default">Clear</a>
+    <a href="" class="btn btn-lg btn-default" onclick="clearResponses()" >Clear</a>
+</div>
+
 </div>
