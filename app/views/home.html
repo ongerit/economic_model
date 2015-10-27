@@ -1,4 +1,6 @@
 <div class="wrapper" ng-controller="MainCtrl">
+
+<form ng-submit="submit()">
 <div class="col-md-6">
     <table class="table table-hover">
         <thead>
@@ -12,31 +14,31 @@
                 <td>
                     Number of Patients: <p>{{patients.value}}</p></td>
                 <td>
-                    <input class="form-control" ng-model="patients.value"/>
+                    <input type="number"  class="form-control" ng-model="patients.value"/>
                 </td>
             </tr>
             <tr>
                 <td>Western Blot Price Variability: {{variability.value}} </td>
                 <td>
-                    <input class="form-control" ng-model="variability.value" />
+                    <input type="number"  class="form-control" ng-model="variability.value" />
                 </td>
             </tr>
             <tr>
                 <td>Old VIDAS Assays Price/Test: {{oldPrice.value}} </td>
                 <td>
-                    <input class="form-control" ng-model="oldPrice.value"/>
+                    <input type="number"  class="form-control" ng-model="oldPrice.value" />
                 </td>
             </tr>
             <tr>
                 <td>New VIDAS Assays Price/Test: {{newPrice.value}} </td>
                 <td>
-                    <input class="form-control" ng-model="newPrice.value" />
+                    <input  type="number" class="form-control" ng-model="newPrice.value" />
                 </td>
             </tr>
             <tr>
                 <td>Western Blot Price/Test: {{westernBlotPrice.value}} </td>
                 <td>
-                    <input class="form-control" ng-model="westernBlotPrice.value" />
+                    <input type="number" class="form-control" ng-model="westernBlotPrice.value" />
                 </td>
             </tr>
         </tbody>
@@ -69,8 +71,11 @@
             </tr>
         </tbody>
     </table>
-    <a href="" class="btn btn-lg btn-default">Clear</a>
+    <input type="submit" class="btn btn-lg btn-default" value="Calculate">
+    <input onclick="clearResponses()" type="reset" class="btn btn-lg btn-default" value="Clear">
 </div>
+
+</form>
 <div class="col-md-12">
     <table class="table table-hover">
         <thead>
@@ -87,32 +92,19 @@
             <tr>
             <td>Old VIDAS Assays + WB Confirmation </td>
             <td id="row1">
-									${{
-										((.313)*((47)*(oldPrice.value|number)+(94)*(westernBlotPrice.value|number))/(150))*(patients.value|number)+
-
-										((.687)*((103)*(oldPrice.value|number)+(0)*(westernBlotPrice.value|number))/(150))*(patients.value|number)
-
-
-															}}
+                ${{oldWbConfirmation.oldWb + oldWbConfirmation.wbConfirmation|number:2}}
             </td>
             </tr>
             <tr>
                 <td>New VIDAS Assays + WB Confirmation </td>
                 <td>
-									${{
-									((.117)*((35)*(newPrice.value|number)+(35)*(westernBlotPrice.value|number)*)/(150))*(patients.value|number)
-									<!-- ((.17)*((51)*(newPrice.value|number)+(51)*(westernBlotPrice.value|number)*)/(150))*(patients.value|number)+
-									((.713)*((0)*(newPrice.value|number)+(214)*(westernBlotPrice.value|number)*)/(150))*(patients.value|number) -->
-
-
-									}}
-                   
+                    ${{newWbConfirmation.newWb+newWbConfirmation.wbConfirmation+newWbConfirmation.addThis|number:2}}                   
                 </td>
             </tr>
             <tr>
                 <td><b>Change in Cost with New VIDAS</b></td>
                 <td>
-                    <input class="form-control" />
+                       ${{oldWbConfirmation.oldWb + oldWbConfirmation.wbConfirmation+newWbConfirmation.newWb+newWbConfirmation.wbConfirmation+newWbConfirmation.addThis|number:2}} 
                 </td>
             </tr>
             <tr>
@@ -183,7 +175,6 @@
             </tr>
         </tbody>
     </table>
-    <a href="" class="btn btn-lg btn-default" onclick="clearResponses()" >Clear</a>
 </div>
 
 </div>

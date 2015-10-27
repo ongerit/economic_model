@@ -2,24 +2,44 @@
  * Globals
  */
 
+//Fonts
+
+$oswald: 'Oswald', sans-serif;
+$opensans: 'Open Sans Condensed', sans-serif;
+
 //Colors
 
-$white: #fff;
-$dark-blue:#223366;
-$light-blue:#88bbdd;
-$bg-blue:#ddddee;
-$border-blue:#7788aa;
-$border-gray:#ddd;
 
+$white: #f2f2f2;
+$bg-white: #fff;
+$dark-blue:#FA6900;
+$light-blue:#A7DBD8;
+$bg-blue:#E0E4CC;
+$border-blue:#A7DBD8;
+$border-gray:#ddd;
+$green: #E0E4CC;
+
+//Nav
+
+h3, .nav{
+  font-family: $oswald;
+  text-transform: uppercase;
+
+
+}
 
 //Tables
 thead{
   background-color: $dark-blue;
   color: $white;
+  font-family: $oswald;
+  text-transform: uppercase;
 }
 
 .table{
-	border: 1px solid $border-gray;
+	//border: 1px solid $border-gray;
+  background-color: $bg-white;
+
 }
 
 
@@ -28,7 +48,7 @@ thead{
 a,
 a:focus,
 a:hover {
-  color: $white;
+  color: $border-blue;
 }
 
 /* Custom default button */
@@ -37,12 +57,15 @@ a:hover {
   color: $white;
   text-shadow: none; /* Prevent inheritence from `body` */
   background-color: $border-blue;
-  border: 1px solid $white;
+  border: none;
+  border-radius: none
 }
 
 .btn-default:hover{
-  background-color: $dark-blue;
+  background-color: $green;
 	color: white;
+  border: none;
+
 	
 }
 
@@ -58,7 +81,9 @@ body {
 body {
   color: $dark-blue;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  //text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  font-family: $opensans
+
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */

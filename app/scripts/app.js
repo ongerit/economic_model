@@ -12,8 +12,8 @@ angular.module('ongerit.EconomicModels', ['ngAnimate', 'ngRoute'])
       .when('/', {
         templateUrl: 'views/home.html'
       })
-      .when('/features', {
-        templateUrl: 'views/features.html'
+      .when('/graphs', {
+        templateUrl: 'views/graphs.html'
       })
       .when('/contact', {
         templateUrl: 'views/contact.html'
