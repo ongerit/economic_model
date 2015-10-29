@@ -4,54 +4,147 @@ angular.module('ongerit.EconomicModels')
 
 .controller('MainCtrl', function($scope, $location, version) {
 
-        $scope.$path = $location.path.bind($location);
-        $scope.version = version;
+    $scope.$path = $location.path.bind($location);
+    $scope.version = version;
 
-        $scope.patients = {
-            value: " "
-        }
+    $scope.patients = {
+        value: " "
+    }
 
-        $scope.variability = {
-            value: " "
-        }
+    $scope.variability = {
+        value: " "
+    }
 
-        $scope.oldPrice = {
-            value: " "
-        }
+    $scope.oldPrice = {
+        value: " "
+    }
 
-        $scope.newPrice = {
-            value: " "
-        }
+    $scope.newPrice = {
+        value: " "
+    }
 
-        $scope.westernBlotPrice = {
-            value: " "
-        }
+    $scope.westernBlotPrice = {
+        value: " "
+    }
 
-        $scope.submit = function() {
+    $scope.submit = function() {
 
-            if ($scope.patients && $scope.westernBlotPrice && $scope.oldPrice) {
-                var values = {
-                    opv: $scope.oldPrice.value,
-                    npv: $scope.newPrice.value,
-                    wbpv: $scope.westernBlotPrice.value,
-                    pv: $scope.patients.value
-                };
+        //VIDAS CALCULATOR
 
-                // Old VIDAS Assays + WB Confirmation
-                $scope.oldWbConfirmation = {
-                    oldWb: ((.313) * ((47) * (values.opv) + (94) * (values.wbpv)) / (150)) * (values.pv),
-                    wbConfirmation: ((.687) * ((103) * (values.opv) + (0) * (values.wbpv)) / (150)) * (values.pv)
-                }
+        if ($scope.patients && $scope.westernBlotPrice && $scope.oldPrice) {
+            var values = {
+                pv: $scope.patients.value, //j11
+                wv: $scope.variability.value, //j12
+                opv: $scope.oldPrice.value, //j13
+                npv: $scope.newPrice.value, //j14
+                wbpv: $scope.westernBlotPrice.value, //j15
 
-                //New VIDAS Assays + WB Confirmation
-                $scope.newWbConfirmation = {
-                    newWb: ((.687) * ((103) * (values.opv) + (0) * (values.wbpv)) / (150)) * (values.pv),
-                    wbConfirmation: ((.17) * ((51) * (values.npv) + (51) * (values.wbpv)) / (150)) * (values.pv),
-                    addThis: ((.713) * ((0) * (values.npv) + (214) * (values.wbpv)) / (150)) * (values.pv)
+            };
+
+
+            // CONSTANTS
+            // CALCULATION TAB: VALUES CLMN E
+            var c_e14 = 47;
+            var c_e15 = 103;
+            var c_e20 = 35;
+            var c_e21 = 51;
+            var c_e22 = 214;
+            var c_e31 = 47;
+            var c_e32 = 103;
+            var c_e37 = 35;
+            var c_e38 = 51;
+            var c_e39 = 214;
+            var c_e45 = 47;
+            var c_e46 = 103;
+            var c_e51 = 35;
+            var c_e52 = 51;
+            var c_e53 = 214;
+
+            //CALCULATION TAB: VALUES CLMN F
+            var c_f14 = 0.313;
+            var c_f15 = 0.687;
+            var c_f20 = 0.117;
+            var c_f21 = 0.170;
+            var c_f22 = 0.713;
+            var c_f31 = 0.313;
+            var c_f32 = 0.687;
+            var c_f37 = 0.117;
+            var c_f38 = 0.170;
+            var c_f39 = 0.713;
+            var c_f45 = 0.313;
+            var c_f46 = 0.687;
+            var c_f51 = 0.117;
+            var c_f52 = 0.170;
+            var c_f53 = 0.713;
+
+            //CALCULATION TAB: VALUES CLMN G
+            var c_g14 = 94;
+            var c_g15 = 0;
+            var c_g20 = 35;
+            var c_g21 = 51;
+            var c_g22 = 0;
+            var c_g31 = 94;
+            var c_g32 = 0;
+            var c_g37 = 35;
+            var c_g38 = 51;
+            var c_g39 = 0;
+            var c_g45 = 94;
+            var c_g46 = 0;
+            var c_g51 = 35;
+            var c_g52 = 51;
+            var c_g53 = 0;
+
+            //INPUT TAB: VALUES CLMN F
+            var i_f14 = 0.313;
+            var i_f15 = 0.687;
+            var i_f22 = 0.117;
+            var i_f23 = 0.170;
+            var i_f24 = 0.713;
+            var i_f28 = 21.08;
+            var i_f29 = 21.08;
+            var i_f30 = 23.18;
+            var i_f35 = 23.18;
+            var i_f36_f48 = 23.18; //grabs all values between Input F36 & F48
+
+                // pv: $scope.patients.value, //j11
+                // wv: $scope.variability.value, //j12
+                // opv: $scope.oldPrice.value, //j13
+                // npv: $scope.newPrice.value, //j14
+                // wbpv: $scope.westernBlotPrice.value, //j15
+
+
+
+            //TESTING ::COST, REVENUE , OPERATING MARGIN WESTERN BLOT SAVINGS
+
+            //COST
+
+            // Old VIDAS Assays + WB Confirmation
+            $scope.oldWbConfirmation = {
+                oldWb: ((.313) * ((47) * (values.opv) + (94) * (values.wbpv)) / (150)) * (values.pv),
+                wbConfirmation: ((.687) * ((103) * (values.opv) + (0) * (values.wbpv)) / (150)) * (values.pv)
             }
 
+            //New VIDAS Assays + WB Confirmation
+            $scope.newWbConfirmation = {
+                newWb: ((.117) * ((35) * (values.npv) + (35) * (values.wbpv)) / (150)),
+                wbConfirmation: ((.17) * ((51) * (values.npv) + (51) * (values.wbpv)) / (150)),
+                addThis: ((.713) * ((214) * (values.npv) + (0) * (values.wbpv)) / (150)),
 
-            // value: ((.687)*((103)*(oldPrice.value|number)+(0)*(westernBlotPrice.value|number))/(150))*(patients.value|number);
+            }
+
+            //REVENUE
+
+
+            $scope.revenueOld = {
+                newWb: c_f14 * (c_e14 * i_f29 + i_f30  * c_g14) / (150) * values.pv,
+                wbConfirmation: c_f15 * (c_e15 * i_f29 + i_f30 * c_g15)/(150)* values.pv
+            }
+
+            $scope.revenueNew = {
+                newWb: c_f20 * (c_e20 * i_f28 + c_g20 * i_f30)/(150) * values.pv,
+                wbConfirmation: c_f21 * (c_e21 * i_f28 + c_g21 * i_f30)/ (150) * values.pv,
+                addThis: c_f22 * (c_e22 *i_f28 + c_g22 * i_f30)/(150) * values.pv 
+            }
 
         };
 
@@ -64,16 +157,35 @@ angular.module('ongerit.EconomicModels')
 
 });
 
-//Clear form responses
-function clearResponses() {
-    $('tbody').find('input:number').val('');
-}
+
+$(document).ready(function() {
+
+    //Clear form responses
+    function clearResponses() {
+        $('tbody').find('input:number').val('');
+    }
+
+
+
+    //http://davidwalsh.name/html5-input-types-alternative
+
+    $('#us-percent').w2field('percent', {
+        precision: 1,
+        min: 0,
+        max: 100
+    });
+    $('#us-money').w2field('money', {
+        moneySymbol: '$'
+    });
+});
+
+
 
 
 // .directives('firstTotal', function(){
-// 	return{
-// 		template: "Only in america"
-// 	};
+//  return{
+//      template: "Only in america"
+//  };
 //
 // })
 
