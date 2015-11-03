@@ -136,13 +136,13 @@
                 <tr>
                     <td>Old VIDAS Assays + WB Confirmation </td>
                     <td>
-                        <input class="form-control" />
+                        {{(revenueOld.newWb + revenueOld.wbConfirmation) - (revenueOld.newWb + revenueOld.wbConfirmation)|number:2}}
                     </td>
                 </tr>
                 <tr>
                     <td>New VIDAS Assays + WB Confirmation </td>
                     <td>
-                        <input class="form-control" />
+                        {{([1 - (revenueOld.newWb + revenueOld.wbConfirmation) / (revenueNew.newWb + revenueNew.wbConfirmation + revenueNew.addThis)]*100)-[revenueNew.newWb + revenueNew.wbConfirmation + revenueNew.addThis]}}
                     </td>
                 </tr>
                 <tr>
